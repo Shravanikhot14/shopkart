@@ -7,13 +7,20 @@ import State from './components/State';
 import Recipes from './components/Recipes';
 import { RouterProvider } from 'react-router-dom';
 import routes from './routes';
+import { LoginContextProvider } from './LoginContext';
 
 function App() {
   
   return (
     <>
+
+    <LoginContextProvider>
+      
+      <RouterProvider router={routes}/>
+
+    </LoginContextProvider>
      
-     <RouterProvider router={routes}/>
+     
     
     </>
   );

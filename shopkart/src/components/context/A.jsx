@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import B from './B';
+
+// step 1- create context
+export const firstContext= createContext()
 
 function A() {
 
     const[msg,setMsg]=useState("Good Morning");
+
+
 
   return (
     <div>
@@ -13,8 +18,16 @@ function A() {
 
     <hr />
 
-    <B/>
+     {/*step 2- provide data to context with the help of provider  */}
 
+    <firstContext.Provider value={{msg}}>
+
+      <B/>                              
+      {/* C and D will also get the data */}
+
+    </firstContext.Provider>
+
+    
    
 
     </div>
