@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { LoginContext } from '../LoginContext'
 
 
 function Navbar() {
+
+    const {user, isLoggedIn, logout}= useContext(LoginContext)
+
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -24,6 +28,17 @@ function Navbar() {
                             </Link>
                         </li>
 
+                        {/* {isLoggedIn: <></> : <></>} */}
+
+                        {isLoggedIn ? <>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={()=>logout()}>
+                                Logout
+                            </button>
+                        </li>
+                        
+                        </> : <>
+
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">
                                 Login
@@ -35,6 +50,12 @@ function Navbar() {
                                 Register
                             </Link>
                         </li>
+                        
+                        </>}
+
+                        
+
+                        
 
                         <li className="nav-item">
                             <Link className="nav-link" to="/cart">
@@ -52,6 +73,7 @@ function Navbar() {
                                 <li><Link class="dropdown-item" to={"admin/products"}>Admin</Link></li>
                                 <li><Link class="dropdown-item" to={"props"}>Props Example</Link></li>
                                 <li><Link class="dropdown-item" to={"context-example"}>Context Example</Link></li>
+                                <li><Link class="dropdown-item" to={"optimization-examples"}>Optimization Examples</Link></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>

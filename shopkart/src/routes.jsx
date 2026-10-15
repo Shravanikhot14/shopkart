@@ -9,6 +9,12 @@ import Reducer from './components/Reducer';
 import ProductAdmin from './components/ProductAdmin';
 import PropsExample from './components/PropsExample';
 import A from './components/context/A';
+import M from './components/M';
+import ProductDetail from './components/ProductDetail';
+import ErrorPage from './components/ErrorPage';
+import Counter from './components/Counter';
+import RefExample from './components/RefExample';
+import Area from './components/Area';
 
 
 const routes=createBrowserRouter([
@@ -60,6 +66,41 @@ const routes=createBrowserRouter([
                 path:"context-example",
                 element:<A/>
             },
+
+            {
+                path:"optimization-examples",
+                element:<M/>
+            },
+
+            {
+                path:"/products/detail/:id",
+                element:<ProductDetail/>
+            },
+
+            {
+                path:"demo",
+                element:<Counter/>,
+                // errorElement: <h1>Something went wrong</h1>
+            },
+
+            {
+                path:'ref',
+                element:<RefExample/>
+            },
+
+            {
+                path:"area",
+                element:<Area/>
+            },
+
+            // all other routes should be above * as it means all remaining routes
+
+            {
+                path:"*",           
+                element:<ErrorPage/>
+            }
+
+        
 
         ]
     },
